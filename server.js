@@ -27,6 +27,12 @@ app.get('/feedback', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/pages/feedback.html'))
 );
 
+// Wildcard route (catch-all) putting at end of course
+app.get('*', (req, res) => {
+  res.status(404).send('Page not found');
+});
+
+
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
 );
